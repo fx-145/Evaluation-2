@@ -1,7 +1,23 @@
 html {
-    font-family:"Lato"
+    font-family: 'Lato', sans-serif;
 }
 
 .bordure{
-border: solid;
+border:ridge;
+padding: 100px 50px 30px 30px;
+}
+
+.column2{
+padding: 50px 50px 30px 30px;
+text-align: center;
+}
+
+h2, ul {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+canvas {
+    font-family: 'Lato', sans-serif;
+    
 }

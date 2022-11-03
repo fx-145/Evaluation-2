@@ -10,27 +10,43 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
   <!-- lien vers le CSS perso -->
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- lien vers la police Lato de google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <!-- ajout de 3 colonnes -->
   <div class="container">
     <div class="row">
+      <!-- ajout colonne 1 -->
       <div class="col-sm bordure">
-        One of three columns
+       <!-- <h2>Joueur 1</h2>-->
+        <canvas id="canvasP1" width="1000" height="1500" class="container-fluid"></canvas>
+       <!-- <ul>Scoreglobal joueur1</ul>-->
       </div>
+      <!-- ajout colonne 2 -->
+      <div class="col-sm column2">
+        <button>NEW GAME</button>
+         <canvas id="diceCanvas" width="1000" height="1000" class="container-fluid"></canvas>
+         <button>ROLL DICE</button>
+         <button>HOLD</button>
+
+       <!-- <canvas id="canvas_animate" width="100" height="100" class="container-fluid" ></canvas> -->
+      </div>
+      <!-- ajout colonne 3 -->
       <div class="col-sm bordure">
-        2 of three columns
-        <canvas id="diceCanvas" width="1000" height="1000" class="container-fluid"></canvas>
-      </div>
-      <div class="col-sm bordure">
-        3 of three columns
-      </div>
+      <!--  <h2>Joueur 2</h2> -->
+      <!---  <ul>Scoreglobal joueur2</ul> -->
+        <canvas id="canvasP2" width="1000" height="1500" class="container-fluid"></canvas>
+          </div>
     </div>
   </div>
  
+  <!--<script type="module"> </script> -->
   <script src="script.js" type="text/javascript"></script>
-
+  
   <!--
   !-->
 
