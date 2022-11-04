@@ -4,6 +4,14 @@ const canvas = document.getElementById('diceCanvas');
 let ctx;
 let x;
 let y;
+// Initialisation des scores current et global pour le joueur 1 et le joueur 2. C'est au joueur 1 de jouer (yourTurn = 1 )
+let currentScoreP1 = 0;
+let currentScoreP2 = 0;
+let globalScoreP1 = 0;
+let globalScoreP2 = 0;
+let yourTurn = 1;
+console.log(yourTurn)
+// condition d'execution du code canevas si pris en charge par le navigateur, déclaration en 2d
 if (canvas.getContext) {
     ctx = canvas.getContext('2d');
     // On indique au contexte de constuire un carré à 500px du top, 250px du left, 80px de largeur et 80px de hauteur
@@ -139,10 +147,16 @@ function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     randomNumber = Math.floor(Math.random() * (max - min +1)) + min;
-    return randomNumber
-  }
-  getRandomIntInclusive(1,6)
+   // return randomNumber
+   // console.log(randomNumber)
+   
+  
+  
   //console.log(randomNumber)
+
+  
+
+
   if (randomNumber === 1) { one();
   }
   if (randomNumber === 2) { two();
@@ -154,9 +168,13 @@ function getRandomIntInclusive(min, max) {
   if (randomNumber === 5) { five();
   }
   if (randomNumber === 6) { six();
+    return randomNumber
+  
   }
 
-
+}
+//getRandomIntInclusive(1,6)
+//console.log(randomNumber)
 // dessiner le point du tour joueur 1
 const canvasP1 = document.getElementById('canvasP1');
 // initialisation du contexte
@@ -166,12 +184,14 @@ const canvasP1 = document.getElementById('canvasP1');
 
 // Insertion de 'Joueur 1' et de la fonction qui insére le point qui indique son tour
       ctxP1.font = '96px Lato';
-      ctxP1.fillText('Joueur 1', 350, 200);
+      ctxP1.textAlign = 'center';
+      ctxP1.textBaseline = 'middle';
+      ctxP1.fillText('Player 1', 500, 200);
       function drawTurnPointP1() {
         ctxP1.beginPath();
         ctxP1.lineWidth = '5';
         ctxP1.fillStyle = 'B90808F';
-        ctxP1.arc(900, 170, 40, 0, 2 * Math.PI);
+        ctxP1.arc(900, 200, 40, 0, 2 * Math.PI);
         ctxP1.fill();
     }
     drawTurnPointP1()
@@ -179,16 +199,28 @@ const canvasP1 = document.getElementById('canvasP1');
 
 
   // Insérer le score global joueur 1
+      function displayGlobalScoreP1(){
       ctxP1.font = '288px Lato';
-      ctxP1.fillText('99', 280, 600);
+      ctxP1.textAlign = 'center';
+      ctxP1.textBaseline = 'middle';
+      ctxP1.fillText(globalScoreP1, 500, 600);
+}
     
-  
+displayGlobalScoreP1()
 
 // Insérer le score current joueur 1
-ctxP1.font = '96px Lato';
-ctxP1.fillText('Current', 350, 1100);
-ctxP1.fillText('4', 400, 1400)
-    
+function displayCurrentScoreP1() {ctxP1.font = '96px Lato';
+ctxP1.textAlign = 'center';
+ctxP1.textBaseline = 'middle';
+ctxP1.fillText('Current', 500, 1100);
+ctxP1.textAlign = 'center';
+ctxP1.textBaseline = 'middle';
+ctxP1.fillText(currentScoreP1, 500, 1350);
+ctxP1.strokeRect(200,1000,600,500);
+
+}
+displayCurrentScoreP1() 
+
 
 // dessiner le point du tour joueur 2
 const canvasP2 = document.getElementById('canvasP2');
@@ -199,27 +231,157 @@ const canvasP2 = document.getElementById('canvasP2');
 
 // Insertion de 'Joueur 2' et de la fonction qui insére le point qui indique son tour
       ctxP2.font = '96px Lato';
-      ctxP2.fillText('Joueur 2', 350, 200);
-      function drawTurnPointP1() {
+      ctxP2.textAlign = 'center'
+      ctxP2.textBaseline = 'middle';
+      ctxP2.fillText('Player 2', 500, 200);
+      function drawTurnPointP2() {
         ctxP2.beginPath();
         ctxP2.lineWidth = '5';
         ctxP2.fillStyle = 'B90808F';
-        ctxP2.arc(900, 170, 40, 0, 2 * Math.PI);
+        ctxP2.arc(200, 200, 40, 0, 2 * Math.PI);
         ctxP2.fill();
     }
 }
-    drawTurnPointP1()
+    drawTurnPointP2()
 
 
   // Insérer le score global joueur 2
   
+  function displayGlobalScoreP2(){
   ctxP2.font = '288px Lato';
-  ctxP2.fillText('100', 280, 600);
-
+  ctxP2.textAlign = 'center';
+  ctxP2.textBaseline = 'middle';
+  ctxP2.fillText(globalScoreP2, 500, 600);
+  }
+  displayGlobalScoreP2()
 
 // Insérer le score current joueur 2
+function displayCurrentScoreP2() {
 ctxP2.font = '96px Lato';
-ctxP2.fillText('Current', 350, 1100);
-ctxP2.fillText('5', 400, 1400)
+ctxP2.textAlign = 'center';
+ctxP2.textBaseline = 'middle';
+ctxP2.fillText('Current', 500, 1100);
+ctxP2.textAlign = 'center';
+ctxP2.textBaseline = 'middle';
+ctxP2.fillText(currentScoreP2, 500, 1350);
+ctxP2.strokeRect(200,1000,600,500);
+
+}
+displayCurrentScoreP2() 
 
   
+// Cliquer sur le bouton "Roll dice" lance le dé
+//document.getElementById("btn1").onclick = function() {getRandomIntInclusive(1,6)};
+//document.getElementById("btn1").addEventListener("click", getRandomIntInclusive(1,6));
+
+
+let btnRollDice = document.querySelector('#btn1');
+let btnHold = document.querySelector('#btn2');
+let btnNewGame = document.querySelector('#btn3');
+function display() {
+    btnHold.disabled = false;
+    if (yourTurn === 1)
+    {   
+        getRandomIntInclusive(1,6);
+        //console.log(randomNumber);
+        if (randomNumber === 1) {
+            ctxP1.clearRect(300,1000,400,500)
+            currentScoreP1 = 0;
+            displayCurrentScoreP1();
+            yourTurn = 2;
+            btnHold.disabled = true;
+            p2Turn()
+
+        } else{
+            currentScoreP1 = randomNumber;
+            ctxP1.clearRect(300,1000,400,500)
+            displayCurrentScoreP1();
+            yourTurn = 1;
+        }
+    } else {if (yourTurn === 2){
+        
+        getRandomIntInclusive(1,6);
+        //console.log(randomNumber);
+        if (randomNumber === 1) {
+            
+            ctxP2.clearRect(300,1000,400,500)
+            currentScoreP2 = 0;
+            displayCurrentScoreP2();
+            yourTurn = 1;
+            btnHold.disabled = true;
+            p1Turn()
+
+        } else{
+            currentScoreP2 = randomNumber;
+            ctxP2.clearRect(300,1000,400,500)
+            displayCurrentScoreP2();
+            yourTurn = 2;
+
+    }
+}
+}
+}
+
+function hold() {
+    if (yourTurn === 1) {
+        globalScoreP1 = globalScoreP1 + currentScoreP1;
+        if (globalScoreP1 < 100) {
+            ctxP1.clearRect(200, 400, 550, 600);
+            displayGlobalScoreP1();
+            console.log(globalScoreP1);
+            currentScoreP1 = 0
+            ctxP1.clearRect(300, 1000, 400, 500)
+            displayCurrentScoreP1()
+            yourTurn = 2;
+            btnHold.disabled = true;
+            p2Turn()
+        } else {
+            ctxP1.clearRect(200, 400, 550, 600);
+            displayGlobalScoreP1();
+            console.log('Player 1 win!');
+            btnHold.disabled = true;
+            btnRollDice.disabled = true;
+        }
+
+    } else {
+        if (yourTurn === 2) {
+            globalScoreP2 = globalScoreP2 + currentScoreP2
+            if (globalScoreP2<100){
+            ctxP2.clearRect(200, 400, 550, 600)
+            displayGlobalScoreP2()
+            console.log(globalScoreP2)
+            currentScoreP2 = 0
+            ctxP2.clearRect(300,1000,400,500)
+            displayCurrentScoreP2()
+            yourTurn = 1;
+            btnHold.disabled = true;
+            p1Turn()
+            } else {
+                ctxP2.clearRect(200, 400, 550, 600);
+                displayGlobalScoreP2();
+                console.log('Player 2 win!');
+                btnHold.disabled = true;
+                btnRollDice.disabled = true;  
+            }
+        }
+    }
+}
+
+function p1Turn(){
+    drawTurnPointP1();
+    ctxP2.clearRect(40,130,200,300)
+}
+function p2Turn(){
+    drawTurnPointP2();
+    ctxP1.clearRect(800,130,200,300) 
+}
+function reload(){
+    window.location.reload();
+}
+   
+
+btnRollDice.addEventListener('click', display);
+btnHold.addEventListener('click', hold);
+btnNewGame.addEventListener('click', reload);
+
+p1Turn()
