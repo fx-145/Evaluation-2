@@ -1,10 +1,11 @@
 html {
     font-family: 'Lato', sans-serif;
+    
 }
 
 .bordure{
 border:ridge;
-padding: 100px 50px 30px 30px;
+padding: 100px 100px 30px 30px;
 }
 
 .column2{
@@ -12,12 +13,49 @@ padding: 50px 50px 30px 30px;
 text-align: center;
 }
 
-h2, ul {
+h2{
     text-align: center;
     font-family: 'Lato', sans-serif;
+    font-size: xx-large;
 }
 
 canvas {
     font-family: 'Lato', sans-serif;
     
 }
+
+.encadre{
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    
+    border-style: inset;
+    background-color: #00FF00;width: 50px;
+}
+.marginTop{
+    text-align:center;
+    padding-top: 100px;
+}
+
+.marginTop2{
+    text-align:center;
+    padding-top: 10px;
+    font-size:x-large;
+}
+
+.marginBottom{
+    padding-top: 10px;
+    text-align:center;
+    padding-bottom: 50px;
+   
+}
+    
+.borderCurrent{
+    padding-top: 10px;
+    font-family: 'Lato', sans-serif;
+    border: 5px;
+    border-style: inset;
+    background-color: #00FF00;}
+
+    .columnBackground{
+        background-color: aquamarine;
+    }
