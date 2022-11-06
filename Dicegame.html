@@ -22,27 +22,27 @@
     <div class="row">
       <!-- ajout colonne 1: player 1"col-sm 
       " col-auto col-md bg-success bg-light border border-success marginTop -->
-      <div class="col-sm column2 columnBackground marginTop">
-        <h2>Player 1</h2>
+      <div class="col-sm-3 column2 columnBackground marginTop">
+        <h2 id="player1" class="">Player 1</h2>
         <canvas id="canvasP1" width="2000" height="400" class="container-fluid"></canvas>
         <h2 class="marginBottom" id="scoreP1"></h2>
         <div class="borderCurrent">
-          <h5 class="marginTop2">Current</h5>
+          <h5 class="align-middle marginTop2">Current</h5>
           <h5 class="marginBottom" id="currentScoreP1"></h5>
         </div>
       </div>
-      <!-- ajout colonne 2 avec les 3 boutons et le dé dessiné sur un canvas-->
-      <div class="col-sm column2 columnBackground">
-        <button id="btn3" class="btn btn-outline-primary btn-lg mb-2">NEW GAME</button>
+      <!-- ajout colonne 2 avec les 3 boutons et le dé dessiné sur un canvas btn btn-outline-warning btn-lg btn-block-->
+      <div class="col-sm-3 column2 columnBackground">
+        <button id="btn3" class="btn btn-success btn-sm mb-2">NEW GAME</button>
         <canvas id="diceCanvas" width="1000" height="1000" class="container-fluid"></canvas>
         <container class="btn-group-vertical" role="group">
           <button id="btn1" class="btn btn-outline-success btn-sm mb-2 btn btn-secondary">ROLL DICE</button>
           <button id="btn2" class="btn btn-outline-success btn-sm mb-2 btn btn-secondary">HOLD</button>
         </container>
       </div>
-      <!-- ajout colonne 3: player 2-->
-      <div class="col-sm column2 columnBackground marginTop">
-        <h2>Player 2</h2>
+      <!-- ajout colonne 3: player 2 - btn btn-outline-primary btn-lg mb-2-->
+      <div class="col-sm-3 column2 columnBackground marginTop">
+        <h2 id="player2" class="">Player 2</h2>
         <canvas id="canvasP2" width="2000" height="400" class="container-fluid"></canvas>
         <h2 class="marginBottom" id="scoreP2"></h2>
         <div class="borderCurrent">
