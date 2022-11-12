@@ -13,7 +13,7 @@ if (canvas.getContext) {
     function dice() {
         let x = 350;
         let y = 200;
-        ctx.fillStyle = "#B92808";
+        ctx.fillStyle = "#921414";
         ctx.fillRect(x, y, 320, 320);
     }
     // dessiner les points du dé en blanc
@@ -106,24 +106,6 @@ if (canvas.getContext) {
         y = 360;
         drawdicepoints()
     }
-    //Dessiner l'annonce du vainqueur du jeu: la fonction winner se declenchera dès que le score global atteint 100
-    function winner() {
-        x = 0
-        y = 600
-        ctx.fillStyle = "#B92808";
-        ctx.fillRect(x, y, 1200, 300);
-        x = 500
-        y = 700
-        ctx.fillStyle = "#335BFF";
-        ctx.font = '120px Lato';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        if (yourTurn === 1) {
-            ctx.fillText('PLAYER 1 WINS!', x, y);
-        } else {
-            ctx.fillText('PLAYER 2 WINS!', x, y);
-        }
-    }
 }
 else {
     alert("ce navigateur ne supporte pas canvas")
@@ -150,7 +132,6 @@ function getRandomIntInclusive(min, max) {
     }
     if (randomNumber === 6) {
         six();
-        return randomNumber
     }
 }
 // dessiner le point du tour joueur 1 avec canvas
@@ -163,14 +144,14 @@ if (canvasP1.getContext) {
     function drawTurnPointP1() {
         ctxP1.beginPath();
         ctxP1.lineWidth = '5';
-        ctxP1.fillStyle = '#B92808';
+        ctxP1.fillStyle = '#921414';
         ctxP1.arc(1000, 200, 120, 0, 2 * Math.PI);
         ctxP1.fill();
     }
 } else {
     alert('ce navigateur ne supporte pas canvas')
 }
-// On va gérer les scores dans la classe Player
+// On va gérer les scores grâce à la classe Player
 class Player {
     constructor(name) {
         this.name = name
@@ -204,7 +185,7 @@ if (canvasP2.getContext) {
     function drawTurnPointP2() {
         ctxP2.beginPath();
         ctxP2.lineWidth = '5';
-        ctxP2.fillStyle = '#B92808';
+        ctxP2.fillStyle = '#921414';
         ctxP2.arc(1000, 200, 120, 0, 2 * Math.PI);
         ctxP2.fill();
         //drawTurnPointP2()
@@ -219,7 +200,7 @@ function displayGlobalScoreP2() {
     })
 }
 displayGlobalScoreP2()
-// Insérer le score current joueur 2
+// Insérer le score current joueur 2 (en utilisant JQuery)
 function displayCurrentScoreP2() {
     $(document).ready(function () {
         $("#currentScoreP2").text(player2.currentScore)
@@ -287,9 +268,13 @@ function hold() {
         } else {
             ctxP1.clearRect(200, 380, 550, 600);
             displayGlobalScoreP1();
-            winner()
             btnHold.disabled = true;
             btnRollDice.disabled = true;
+            //Affichage en colonne 2 du winner of the game, player 1
+            let wotg = document.getElementById('winnerOfTheGame')
+            let h2 = document.createElement('h2')
+            h2.innerText = 'PLAYER 1 WINS !'
+            wotg.append(h2)
         }
     } else {
         if (yourTurn === 2) {
@@ -304,35 +289,61 @@ function hold() {
                 p1Turn()
             } else {
                 displayGlobalScoreP2();
-                winner()
                 btnHold.disabled = true;
                 btnRollDice.disabled = true;
+                //Affichage en colonne 2 du winner of the game, player 2
+                let wotg = document.getElementById('winnerOfTheGame')
+                let h2 = document.createElement('h2')
+                h2.innerText = 'PLAYER 2 WINS !'
+                wotg.append(h2)
+
 
             }
         }
     }
 }
+
+
+
 // Donne la main à Player 1
 function p1Turn() {
     drawTurnPointP1();
     ctxP2.clearRect(830, 80, 300, 300);
-    let colorScore1 = document.getElementById("player1");
-    let colorScore2 = document.getElementById("player2");
-    colorScore1.className = "modifColorPlayerSet";
-    colorScore2.className = "modifColorPlayerUnSet";
+    $("#player1").css({ "color": "white" });
+    $("#player2").css({ "color": "" });
+    // $("#borderColumn1").css({"border-right-color":"#32CD32","border-width":"5px"});
+    //$("#borderColumn2").css({"border-left-color":"","border-width":""});
+    $("#border1").css({ "color": "white" });
+    $("#border2").css({ "color": "" });
+    $("#scoreP1").css({ "color": "white" });
+    $("#scoreP2").css({ "color": "" });
+
+    // let colorScore1 = document.getElementById("player1");
+    // let colorScore2 = document.getElementById("player2");
+    // colorScore1.className = "modifColorPlayerSet";
+    // colorScore2.className = "modifColorPlayerUnSet";
 }
 // Donne la main à Player 2
 function p2Turn() {
     drawTurnPointP2();
     ctxP1.clearRect(830, 80, 300, 300)
-    let colorScore1 = document.getElementById("player1");
-    let colorScore2 = document.getElementById("player2");
-    colorScore1.className = "modifColorPlayerUnSet";
-    colorScore2.className = "modifColorPlayerSet";
+    $("#player2").css({ "color": "white" });
+    $("#player1").css({ "color": "" });
+    // $("#borderColumn2").css({"border-left-color":"#32CD32","border-width":"5px"});
+    // $("#borderColumn1").css({"border-right-color":"","border-width":""});
+    $("#border2").css({ "color": "white" });
+    $("#border1").css({ "color": "" });
+    $("#scoreP2").css({ "color": "white" });
+    $("#scoreP1").css({ "color": "" });
+    //  let colorScore1 = document.getElementById("player1");
+    // let colorScore2 = document.getElementById("player2");
+    // colorScore1.className = "modifColorPlayerUnSet";
+    // colorScore2.className = "modifColorPlayerSet";
 }
 // Nouvelle partie
 function reload() {
     window.location.reload();
 }
 // Démarrage du jeu : c'est à Player de commencer
+btnHold.disabled = true;
 p1Turn()

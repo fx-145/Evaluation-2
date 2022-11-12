@@ -3,75 +3,65 @@ html {
     height: 100%;
     width: 100%;
     font-size: 1rem;
+    text-align: center;
 }
 
 
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 2500px) {
+    .columnHeight {
+        height: 100vh;
+    }
+
     .bordure {
         border: ridge;
-
     }
 
     .column2 {
         padding: 50px 50px 30px 30px;
-        text-align: center;
     }
 
     h2 {
-        text-align: center;
-        font-family: 'Lato', sans-serif;
         font-size: x-large;
-    }
-
-    canvas {
         font-family: 'Lato', sans-serif;
-
     }
 
+    .marginTop {
+        text-align: center;
+        padding-top: 10vh;
+    }
 
+    .marginTop2 {
+        padding-top: 5vh;
+        font-size: medium;
+    }
+
+    .marginBottom {
+        padding-top: 5vh;
+        padding-bottom: 20vh;
+    }
+
+    .borderCurrent {
+        padding-top: 2vh 10vw;
+        font-family: 'Lato', sans-serif;
+        border: 5px;
+        border-style: double;
+        background-color: #921414;
+    }
+
+    .columnBackground {
+        background-color: rgb(27, 96, 76);
+        border: 2px solid black;
+    }
+
+    .column2Background {
+        background-color: rgb(14, 42, 32);
+    }
+
+    #winnerOfTheGame {
+        color: #921414;
+        background-color: chartreuse;
+    }
 }
-
-.marginTop {
-    text-align: center;
-    padding-top: 10vh;
-}
-
-.marginTop2 {
-    text-align: center;
-    padding-top: 5vh;
-    font-size: small;
-
-}
-
-.marginBottom {
-    padding-top: 5vh;
-    text-align: center;
-    padding-bottom: 10vh;
-
-}
-
-.borderCurrent {
-    padding-top: 2vh 10vw;
-    font-family: 'Lato', sans-serif;
-    border: 5px;
-    border-style: inset;
-    background-color: #bd1545;
-}
-
-.columnBackground {
-    background-color: aquamarine;
-    border: solid
-}
-
-.modifColorPlayerSet{
-    color:red;
-}
-
-.modifColorPlayerUnSet{
-    color:black;
-}
-
-
 
 @media screen and (max-width: 576px) {
     .bordure {
@@ -80,115 +70,85 @@ html {
         orientation: initial
     }
 
-    .column2 {
-        padding: 15px 15px 10px 10px;
-        text-align: center;
-
-    }
-
     h2 {
-        text-align: center;
-        font-family: 'Lato', sans-serif;
         font-size: 1.5em;
-    }
-
-    canvas {
-        font-family: 'Lato', sans-serif;
-
-    }
-
-    .marginTop {
-        text-align: center;
-        padding-top: 10vh;
     }
 
     .marginTop2 {
         text-align: center;
-        padding-top: 5vh;
         font-size: 1.5em;
-
     }
 
     .marginBottom {
-        padding-top: 5vh;
-        text-align: center;
-        padding-bottom: 10vh;
-        font-size: 1.5em;
-
+        font-size: 2em;
     }
 
     .borderCurrent {
         font-size: 1em;
         font-family: 'Lato', sans-serif;
-        text-align: center;
         border: 10px;
         border-style: ridge;
-        background-color: #959e2e;
+        background-color: #921414;
+
     }
 
     .columnBackground {
-        background-color: cadetblue;
-        border: solid;
+        background-color: rgb(27, 96, 76);
+        border: 0.5px solid black;
+    }
+
+    .column2Background {
+        background-color: rgb(14, 42, 32);
+    }
+
+    #winnerOfTheGame {
+        font-size: medium;
+        color: #921414;
+        background-color: chartreuse;
     }
 }
-
-
 
 @media screen and (max-width: 464px) {
     .bordure {
         border: ridge;
-        padding: 2vh 2vh 2vh 2vh;
         orientation: initial
     }
 
-    .column2 {
-        padding: 15px 15px 10px 10px;
-        text-align: center;
-
-    }
-
     h2 {
-        text-align: center;
-        font-family: 'Lato', sans-serif;
-        font-size: 1.5em;
-    }
+        font-size: 10em;
 
-    canvas {
-        font-family: 'Lato', sans-serif;
-
-    }
-
-
-    .marginTop {
-        text-align: center;
-        padding-top: 10vh;
     }
 
     .marginTop2 {
         text-align: center;
-        padding-top: 5vh;
         font-size: 1em;
-
     }
 
     .marginBottom {
-        text-align: center;
-        padding-bottom: 10vh;
-        font-size: 1em;
-
+        font-size: 2em;
     }
 
     .borderCurrent {
         font-size: 1em;
         font-family: 'Lato', sans-serif;
-        text-align: center;
         border: 10px;
         border-style: ridge;
-        background-color: #0000FF;
+        background-color: #921414;
     }
 
     .columnBackground {
-        background-color: rgb(33, 192, 83);
-        border: solid;
+        background-color: rgb(27, 96, 76);
+        border: 0.5px solid black;
+    }
+
+    .column2Background {
+        background-color: rgb(14, 42, 32);
+    }
+
+    #winnerOfTheGame {
+        font-family: 'Lato', sans-serif;
+        font-size: medium;
+        color: #921414;
+        background-color: chartreuse;
     }
 }

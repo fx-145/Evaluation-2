@@ -18,44 +18,55 @@
 
 <body>
   <!-- ajout de 3 colonnes bootstrap -->
-  <div class="container">
+  <div class="container columnHeight">
     <div class="row">
-      <!-- ajout colonne 1: player 1"col-sm 
-      " col-auto col-md bg-success bg-light border border-success marginTop -->
-      <div class="col-sm-3 column2 columnBackground marginTop">
-        <h2 id="player1" class="">Player 1</h2>
+      <!-- ajout colonne 1: player 1 -->
+      <div class="col-sm-3 columnBackground marginTop" id="borderColumn1">
+        <h2 id="player1">Player 1</h2>
         <canvas id="canvasP1" width="2000" height="400" class="container-fluid"></canvas>
-        <h2 class="marginBottom" id="scoreP1"></h2>
-        <div class="borderCurrent">
-          <h5 class="align-middle marginTop2">Current</h5>
+        <h2 class="marginBottom" id="scoreP1">
+        </h2>
+        <div class="borderCurrent" id="border1">
+          <h5 class="marginTop2">Current</h5>
           <h5 class="marginBottom" id="currentScoreP1"></h5>
         </div>
       </div>
       <!-- ajout colonne 2 avec les 3 boutons et le dé dessiné sur un canvas btn btn-outline-warning btn-lg btn-block-->
-      <div class="col-sm-3 column2 columnBackground">
+      <div class="col-sm-3 column2Background marginTop">
+        <div id="winnerOfTheGame">
+          <h1></h1>
+        </div>
         <button id="btn3" class="btn btn-success btn-sm mb-2">NEW GAME</button>
-        <canvas id="diceCanvas" width="1000" height="1000" class="container-fluid"></canvas>
-        <container class="btn-group-vertical" role="group">
+        <canvas id="diceCanvas" width="1000" height="500" class="container-fluid"></canvas>
+        <container class="btn-group-vertical marginBottom" role="group">
           <button id="btn1" class="btn btn-outline-success btn-sm mb-2 btn btn-secondary">ROLL DICE</button>
           <button id="btn2" class="btn btn-outline-success btn-sm mb-2 btn btn-secondary">HOLD</button>
         </container>
       </div>
-      <!-- ajout colonne 3: player 2 - btn btn-outline-primary btn-lg mb-2-->
-      <div class="col-sm-3 column2 columnBackground marginTop">
-        <h2 id="player2" class="">Player 2</h2>
+      <!-- ajout colonne 3: player 2 -->
+      <div class="col-sm-3 columnBackground marginTop" id="borderColumn2">
+        <h2 id="player2">Player 2</h2>
         <canvas id="canvasP2" width="2000" height="400" class="container-fluid"></canvas>
         <h2 class="marginBottom" id="scoreP2"></h2>
-        <div class="borderCurrent">
+        <div class="borderCurrent" id="border2">
           <h5 class="marginTop2">Current</h5>
           <h5 class="marginBottom" id="currentScoreP2"></h5>
         </div>
       </div>
     </div>
   </div>
+  <!-- affichage des mentions légales en bas de page -->
+  <div>
+    <footer class="site-footer">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Ce site n'est pas destiné à une utilisation commerciale - exercice étudiant- Organisme de formation Study
+      </div>
+    </footer>
+  </div>
 
-
-  <!--lien CDN vers la librairie JQUERY, utilisable pour alimenter les scores current et global !-->
+  <!--lien CDN vers la librairie JQUERY, utilisable pour les instructions qui alimentent les scores current et global -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="script.js" type="text/javascript"></script>
 </body>
+
 </html>
