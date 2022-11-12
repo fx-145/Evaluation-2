@@ -257,10 +257,8 @@ function hold() {
     if (yourTurn === 1) {
         player1.globalScore = player1.globalScore + player1.currentScore;
         if (player1.globalScore < 100) {
-            //ctxP1.clearRect(200, 300, 600, 600);
             displayGlobalScoreP1();
             player1.currentScore = 0;
-            //ctxP1.clearRect(300, 1000, 400, 500);
             displayCurrentScoreP1();
             yourTurn = 2;
             btnHold.disabled = true;
@@ -303,42 +301,27 @@ function hold() {
     }
 }
 
-
-
-// Donne la main à Player 1
+// Donne la main à Player 1 (utilisation JQUERY)
 function p1Turn() {
     drawTurnPointP1();
     ctxP2.clearRect(830, 80, 300, 300);
     $("#player1").css({ "color": "white" });
     $("#player2").css({ "color": "" });
-    // $("#borderColumn1").css({"border-right-color":"#32CD32","border-width":"5px"});
-    //$("#borderColumn2").css({"border-left-color":"","border-width":""});
     $("#border1").css({ "color": "white" });
     $("#border2").css({ "color": "" });
     $("#scoreP1").css({ "color": "white" });
     $("#scoreP2").css({ "color": "" });
-
-    // let colorScore1 = document.getElementById("player1");
-    // let colorScore2 = document.getElementById("player2");
-    // colorScore1.className = "modifColorPlayerSet";
-    // colorScore2.className = "modifColorPlayerUnSet";
 }
-// Donne la main à Player 2
+// Donne la main à Player 2 (utilisation JQUERY)
 function p2Turn() {
     drawTurnPointP2();
     ctxP1.clearRect(830, 80, 300, 300)
     $("#player2").css({ "color": "white" });
     $("#player1").css({ "color": "" });
-    // $("#borderColumn2").css({"border-left-color":"#32CD32","border-width":"5px"});
-    // $("#borderColumn1").css({"border-right-color":"","border-width":""});
     $("#border2").css({ "color": "white" });
     $("#border1").css({ "color": "" });
     $("#scoreP2").css({ "color": "white" });
     $("#scoreP1").css({ "color": "" });
-    //  let colorScore1 = document.getElementById("player1");
-    // let colorScore2 = document.getElementById("player2");
-    // colorScore1.className = "modifColorPlayerUnSet";
-    // colorScore2.className = "modifColorPlayerSet";
 }
 // Nouvelle partie
 function reload() {
